@@ -24,7 +24,7 @@ public class CollectionModifierTest {
 
         Collection<Number> correctModifiedList = new ArrayList<>();
         CollectionModifier collectionModifierService = new CollectionModifier();
-        Collection<Integer> myModifiedList = collectionModifierService.multiplyPrimeNumbersAtEvenPosBy10(list);
+        Collection<Integer> myModifiedList = collectionModifierService.multiplyPrimeNumbersAtEvenPosBy(list,10);
 
         assertFalse(correctModifiedList.equals(myModifiedList));
     }
@@ -39,7 +39,7 @@ public class CollectionModifierTest {
 
         CollectionModifier collectionModifier = new CollectionModifier();
 
-        Collection<Integer> myModifiedList = collectionModifier.multiplyPrimeNumbersAtEvenPosBy10(list);
+        Collection<Integer> myModifiedList = collectionModifier.multiplyPrimeNumbersAtEvenPosBy(list,10);
 
         assertArrayEquals(correctModifiedList.toArray(), myModifiedList.toArray());
     }

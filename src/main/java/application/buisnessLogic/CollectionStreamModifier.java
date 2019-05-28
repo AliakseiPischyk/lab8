@@ -1,9 +1,7 @@
 package application.buisnessLogic;
 
 import application.PredicateTemplate;
-import application.services.CollectionModifierService;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.Collection;
 import java.util.function.Function;
@@ -17,12 +15,12 @@ public class CollectionStreamModifier {
     Predicate<Integer> positionPredicate;
     Function<Integer, Integer> modifier;
 
-    public Collection<Integer> multiplyPrimeNumbersAtEvenPosBy10(@RequestBody Collection<Integer> collection) {
+    public Collection<Integer> multiplyPrimeNumbersAtEvenPosBy(Collection<Integer> collection, int byWhat) {
         positionPredicate = new PredicateTemplate()::isEven;
         numberPredicate = new PredicateTemplate()::isPrime;
-        modifier = value -> value * 10;
+        modifier = value -> value * byWhat;
 
-        new CollectionModifierService()
+        new CollectionModifier()
                 .excludeElementsAtEvenPositions(collection); // e.g. isEven() passed then delete those which match !isEven()
 
         return collection.stream().

@@ -33,14 +33,15 @@ public class CollectionModifier {
         return collection;
     }
 
-    public Collection<Integer> multiplyPrimeNumbersAtEvenPosBy10(@RequestBody Collection<Integer> collection) {
+    public Collection<Integer> multiplyPrimeNumbersAtEvenPosBy(@RequestBody Collection<Integer> collection,
+                                                               int byWhat) {
         int currPos = 0;
         List<Integer> modifiedList = new ArrayList<>();
         Iterator<Integer> iterator = collection.iterator();
 
         positionPredicate = new PredicateTemplate()::isUneven;
         numberPredicate = new PredicateTemplate()::isPrime;
-        modifier = value -> value * 10;
+        modifier = value -> value * byWhat;
 
         while (iterator.hasNext()) {
             Integer currNum = iterator.next();
