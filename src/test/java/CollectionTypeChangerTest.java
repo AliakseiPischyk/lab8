@@ -1,3 +1,4 @@
+import application.buisnessLogic.CollectionTypeChanger;
 import application.services.CollectionTypeChangerService;
 import org.junit.Before;
 
@@ -28,7 +29,7 @@ public class CollectionTypeChangerTest {
                 listWithCopies.add(number);
             }
         }
-        assertArrayEquals(list.toArray(), new CollectionTypeChangerService().toSetUsingStream(list).toArray());
+        assertArrayEquals(list.toArray(), new CollectionTypeChanger().toSetUsingStream(list).toArray());
     }
 
     @Test
@@ -39,6 +40,6 @@ public class CollectionTypeChangerTest {
                 listWithCopies.add(number);
             }
         }
-        assertArrayEquals(list.toArray(), new CollectionTypeChangerService().toSet(list).toArray());
+        assertArrayEquals(list.toArray(), new CollectionTypeChanger().toSet(list).toArray());
     }
 }
