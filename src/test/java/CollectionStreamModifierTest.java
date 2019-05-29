@@ -1,4 +1,5 @@
 
+import application.buisnessLogic.CollectionStreamModifier;
 import application.services.CollectionStreamModifierService;
 import org.junit.Before;
 import org.junit.Test;
@@ -24,9 +25,9 @@ public class CollectionStreamModifierTest {
     public void modifyCollectionPrimeEvenTest() {
 
         Collection<Integer> correctModifiedList = new ArrayList<>();
-        CollectionStreamModifierService collectionStreamModifier = new CollectionStreamModifierService();
+        CollectionStreamModifier collectionStreamModifier = new CollectionStreamModifier();
 
-        Collection<Integer> myModifiedList = collectionStreamModifier.multiplyPrimeNumbersAtEvenPosBy10(list);
+        Collection<Integer> myModifiedList = collectionStreamModifier.multiplyPrimeNumbersAtEvenPosBy(list, 10);
 
         assertFalse(correctModifiedList.equals(myModifiedList));
     }
@@ -39,9 +40,9 @@ public class CollectionStreamModifierTest {
         correctModifiedList.add(50);
         correctModifiedList.add(70);
 
-        CollectionStreamModifierService collectionStreamModifier = new CollectionStreamModifierService();
+        CollectionStreamModifier collectionStreamModifier = new CollectionStreamModifier();
 
-        Collection<Integer> myModifiedList = collectionStreamModifier.multiplyPrimeNumbersAtEvenPosBy10(list);
+        Collection<Integer> myModifiedList = collectionStreamModifier.multiplyPrimeNumbersAtEvenPosBy(list, 10);
 
         assertArrayEquals(correctModifiedList.toArray(), myModifiedList.toArray());
     }
